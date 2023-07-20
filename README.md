@@ -11,6 +11,18 @@ Also include & compile the `debug-grid.less` styles, in which you can adjust the
 
 To configure the grid settings for your site, open the `debug-grid.less` file and edit the variables at the top of the file. By default the maximum columns output are 24, but if you need more than this you can adjust the `cols` variable in the `debug-grid.js` file. Otherwise you just use the `@_grid-columns` values in the LESS file to determine how many are shown at desktop size.
 
+## Testing it locally
+
+This project comes with a simple webpack setup so you can test out the grid locally. To run, open a terminal for the project and type:
+
+```
+nvm use
+pnpm i
+pnpm start
+```
+
+You can then browse to the test page at `localhost:9000` and use the toggle commands below to test the grid.
+
 ## Toggling the grid
 
 Once loaded in your website you can use the following key combo to show the grid overlay:
