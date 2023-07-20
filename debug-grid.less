@@ -1,0 +1,98 @@
+/* Debug grid */
+
+// LAYOUT CONSTANTS
+// Note: By default I have used some of our frequently used standard constants
+// as the values for the variables below, but you can change these to be the 
+// whatever is required to match your project.
+
+// The number of columns you want in your grid
+@_grid-columns: 12;
+// Max width of the main page container you wish to apply to grid to
+@_grid-content-maxwidth: @constraint-site;
+// Mediaquery breakpoint at which the small size kicks in
+// Save the variable in the format format: ~"(max-width: 1440rem)"
+@_grid-mediaquery-small: @vp-sm-down;
+// Size of outer left & right page gutters. Set to zero if not used.
+@_grid-page-gutter: @page-gutters;
+// Size of page gutters when in the 'small' mediaquery range.
+@_grid-page-gutter-small: @page-gutters-sm;
+// Size of the inner column left & right content gutters.
+@_grid-column-gutter: @grid-col-gutter;
+// Size of page gutters when in the 'small' mediaquery range.
+@_grid-column-gutter-small: @grid-col-gutter-sm;
+
+// Layout styles for grid. Adjust to suit your specific needs, but by default
+// the layout is set up to reduce to half the columns at a 'small' mediaquery
+// size. Columns will have colour for the content area, and a divider line
+// showing the column edges.
+._debug-grid {
+	display: flex;
+	z-index: 9999;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: @_grid-content-maxwidth;
+	pointer-events: none;
+	box-sizing: content-box !important;
+	padding-left: @_grid-page-gutter;
+	padding-right: @_grid-page-gutter;
+
+	> * { box-sizing: border-box; }
+
+	@media @_grid-mediaquery-small {
+		padding-left: @_grid-page-gutter-small;
+		padding-right: @_grid-page-gutter-small;
+	}
+
+	._column {
+		display: flex;
+		flex: 1;
+		position: relative;
+
+		// Set up variables so that the correct number of columns are shown
+		@_nth-child-count: @_grid-columns + 1;
+		@_nth-child-count-rule: ~"1n + @{_nth-child-count}";
+
+		&:nth-child(@{_nth-child-count-rule})  {
+			display: none;
+		}
+	
+		@media @_grid-mediaquery-small {
+			&:nth-child(2n) {
+				display: none;
+			}
+		}
+
+		> ._divider {
+			width: .rems(1)[];
+			height: 100%;
+			background: #f00;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			transform: translateX(-50%);
+
+			&._first {
+				left: 0;
+			}
+		}
+
+		> ._track {
+			flex: 1;
+			background-color: #f00;
+			opacity: 0.1;
+			margin-left: @_grid-column-gutter;
+			margin-right: @_grid-column-gutter;
+
+			@media @_grid-mediaquery-small {
+				margin-left: @_grid-column-gutter-small;
+				margin-right: @_grid-column-gutter-small;
+			}
+		}
+	}
+}
+/* End debug grid */

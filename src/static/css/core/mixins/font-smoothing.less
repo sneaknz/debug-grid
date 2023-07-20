@@ -1,0 +1,22 @@
+.font-smoothing(@smoothing: grayscale) {
+	.smoothing(@smoothing) when (@smoothing = subpixel) {
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	.smoothing(@smoothing) when (@smoothing = grayscale) {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	.smoothing(@smoothing);
+}
+
+// Safari
+// Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50
+// Chrome
+// Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36
+.font-rendering-fix-for-safari() {
+	html[data-platform="MacIntel"][data-useragent*="Safari/"]:not([data-useragent*="Chrome/"]) & {
+		.font-smoothing(grayscale);
+		text-rendering: optimizeLegibility;
+	}
+}

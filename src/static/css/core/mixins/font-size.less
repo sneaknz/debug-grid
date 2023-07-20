@@ -1,0 +1,7 @@
+// REQUIRES: @rem-base;
+
+.font-size(@size; @base-size: @rem-base) {
+	// Calculates font size in rems, based on @rem-base by default
+	// Accepts @size as an integer value
+	font-size: unit(( unit(@size) / @base-size ), rem);
+}

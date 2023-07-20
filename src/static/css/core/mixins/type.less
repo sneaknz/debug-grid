@@ -1,0 +1,58 @@
+.sans-serif() {
+	font-family: @sans-font-family;
+	.fw-regular;
+}
+
+.fw-regular() { font-weight: normal; }
+.fw-medium() { font-weight: 500; }
+.fw-bold() { font-weight: 700; }
+
+.font-size-headline() {
+	.font-size(36);
+	line-height: 42 / 36;
+	letter-spacing: -(unit((1 / 36), em));
+	.fw-bold;
+}
+
+.font-size-headline-responsive() {
+	.font-size(26);
+	line-height: 34 / 26;
+	.fw-bold;
+
+	@media @vp-lg-up {
+		.font-size-headline;
+	}
+}
+
+.font-size-body-large() {
+	.font-size(20);
+	line-height: 24 / 20;
+	.fw-regular;
+}
+
+.font-size-body() {
+	.font-size(18);
+	line-height: 24 / 18;
+	.fw-regular;
+}
+
+.font-size-body-small() {
+	.font-size(16);
+	line-height: 22 / 16;
+}
+
+.font-size-body-responsive() {
+	.font-size-body-small;
+
+	@media @vp-lg-up {
+		.font-size-body;
+	}
+}
+
+.font-size-body-large-responsive() {
+	.font-size-body;
+
+	@media @vp-lg-up {
+		.font-size-body-large;
+	}
+}

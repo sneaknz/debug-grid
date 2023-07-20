@@ -1,0 +1,72 @@
+/* Variables & Helpers
+------------------------------------------------------------------------------*/
+@import "core/constants";
+@import "core/mixins";
+
+/* Vendor
+------------------------------------------------------------------------------*/
+@import (less) "~normalize.css/normalize.css";
+
+/* Core
+------------------------------------------------------------------------------*/
+@import "core/scaffolding";
+
+/* Components
+------------------------------------------------------------------------------*/
+@import "components/debug";
+@import "components/type";
+
+/* Debug grid LESS
+------------------------------------------------------------------------------*/
+@import "../../..//debug-grid";
+
+.width-limit {
+	box-sizing: border-box;
+
+	&.-site {
+		max-width: @constraint-site;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&.-pageboundaries {
+		box-sizing: content-box;
+		padding-left: @page-gutters;
+		padding-right: @page-gutters;
+	
+		> * { box-sizing: border-box; }
+	
+		@media @vp-sm-down {
+			padding-left: @page-gutters-sm;
+			padding-right: @page-gutters-sm;
+		}
+	}
+}
+
+// Overrides for debug grid to adjust for mediaqueries
+.debug-grid {
+	@media @vp-sm-down {
+		padding-left: @page-gutters-sm !important;
+		padding-right: @page-gutters-sm !important;
+
+		> * {
+			margin-left: @grid-col-gutter-sm !important;
+			margin-right: @grid-col-gutter-sm !important;
+
+			&:nth-child(2n) {
+				display: none;
+			}
+		}
+	}
+}
+
+
+// Helper class wrapper to use when creating base components, so they
+// have vertical space between them.
+._component {
+	+ ._component { margin-top: .rems(50)[]; }
+
+	&.-guttered {
+		.col-gutters-responsive;
+	}
+}

@@ -1,0 +1,14 @@
+@import "mixins/font-size";
+@import "mixins/font-smoothing";
+@import "mixins/gutters";
+@import "mixins/tab-focus";
+@import "mixins/type";
+
+.cols(@cols: @grid-cols-total, @cols-total: @grid-cols-total) {
+	width: percentage((@cols / @cols-total));
+}
+
+// Return a rem value. Use in the format .rems(10)[]
+.rems(@value) {
+	@result: unit((@value / @rem-base), rem)
+}

@@ -1,0 +1,42 @@
+.headline-text {
+	.font-size-headline-responsive;
+	
+	&.-centered {
+		text-align: center;
+	}
+}
+
+.body-text {
+	.font-size-body-responsive;
+	
+	p, li {
+		margin-top: 0;
+		margin-bottom: 0;
+
+		+ p {
+			margin-top: 0.5em;
+		}
+	}
+
+	blockquote {
+		padding-left: 2em;
+		border-left: 1px solid;
+		
+		p {
+			font-size: inherit;
+		}
+	}
+
+	&.-large {
+		.font-size-body-large-responsive;
+
+		p, li {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+	
+	&.-small {
+		.font-size-body-small;
+	}
+}

@@ -1,0 +1,91 @@
+// Colours 	--------------------------------------------------------
+
+@brand: #0047C1;
+@brand-fade: fade(@brand, 25);
+
+@grey: #7d7d7d;
+@grey-mid: #d8d8d8;
+@grey-light: #f5f5f5;
+
+@body: #222;
+@body-medium: #666;
+@body-light: #999;
+
+// Sizes 	--------------------------------------------------------
+
+@grid-cols-total: 12;
+@grid-col-width: .rems(116)[]; // Padding/gutter inclusive
+@grid-col-gutter: .rems(12)[]; // Gutter value for the gutter on each side (not combined)
+@grid-col-gutter-sm: .rems(8)[];
+
+@page-gutters: .rems(24)[];
+@page-gutters-sm: .rems(12)[];
+
+@constraint-site: (@grid-cols-total * @grid-col-width);
+@constraint-narrow: ((@grid-cols-total - 4) * @grid-col-width);
+
+@constraint-site: @grid-cols-total * @grid-col-width;
+
+@border-radius: 4px;
+@border-radius-large: 8px;
+
+
+// Mediaquery breakpoints 	----------------------------------------
+
+@bp-media-sm-min: 520px;
+@bp-media-md-min: 768px;
+@bp-media-lg-min: 960px;
+@bp-media-xl-min: @constraint-site + (@page-gutters * 2);
+
+@bp-media-xs-max: (@bp-media-sm-min - 1);
+@bp-media-sm-max: (@bp-media-md-min - 1);
+@bp-media-md-max: (@bp-media-lg-min - 1);
+@bp-media-lg-max: (@bp-media-xl-min - 1);
+
+@vp-xl: ~"(min-width: @{bp-media-xl-min})";
+@vp-lg: ~"(min-width: @{bp-media-lg-min}) and (max-width: @{bp-media-lg-max})";
+@vp-md: ~"(min-width: @{bp-media-md-min}) and (max-width: @{bp-media-md-max})";
+@vp-sm: ~"(min-width: @{bp-media-sm-min}) and (max-width: @{bp-media-sm-max})";
+@vp-xs: ~"(max-width: @{bp-media-xs-max})";
+
+@vp-lg-down: ~"(max-width: @{bp-media-lg-max})";
+@vp-md-down: ~"(max-width: @{bp-media-md-max})";
+@vp-sm-down: ~"(max-width: @{bp-media-sm-max})";
+
+@vp-lg-up: ~"(min-width: @{bp-media-lg-min})";
+@vp-md-up: ~"(min-width: @{bp-media-md-min})";
+@vp-sm-up: ~"(min-width: @{bp-media-sm-min})";
+
+
+// Type 	--------------------------------------------------------
+
+@font-name: 'Untitled Sans Test';
+@font-family: @font-name, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@fonts-path: '../font/';
+
+@sans-font-family: @font-family;
+
+@rem-base: 16;
+
+@fs-root: unit(@rem-base, px);
+@lh-root: 1.5;
+
+@fs-headline: 36;
+@fs-body-large: 24;
+@fs-body: 20;
+@fs-body-small: 16;
+@fs-caption: 14;
+@fs-metadata: 12;
+@fs-ui: 14;
+
+
+// Easing 	--------------------------------------------------------
+
+@easeOutQuart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+@easeOutExpo: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+@easeInOutQuint: cubic-bezier(0.860, 0, 0.070, 1.000);
+
+
+// Images 	--------------------------------------------------------
+
+@blank: ~"url('data:image/gif;base64,R0lGODlhAQABAHAAACH5BAUHAAAALAAAAAABAAEAAAICRAEAOw==')";

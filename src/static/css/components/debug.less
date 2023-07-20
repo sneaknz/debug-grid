@@ -1,0 +1,52 @@
+// FOR TESTING SOME INITIAL MARKUP ONLY
+.grid-test {
+	margin: .rems(50)[] 0;
+
+	.grid-row {
+		height: .rems(20)[];
+		display: flex;
+		margin-bottom: .rems(5)[];
+
+		> div {
+			flex: 1;
+			background: fade(#fc0, 80);
+			.col-gutters-responsive();
+			height: 100%;
+			border-radius: .rems(2)[];
+
+			&:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: #090;
+				border-radius: .rems(2)[];
+			}
+		}
+
+		&.-cols1	{ max-width: percentage((1 / @grid-cols-total)); }
+		&.-cols2	{ max-width: percentage((2 / @grid-cols-total)); }
+		&.-cols3	{ max-width: percentage((3 / @grid-cols-total)); }
+		&.-cols4	{ max-width: percentage((4 / @grid-cols-total)); }
+		&.-cols5	{ max-width: percentage((5 / @grid-cols-total)); }
+		&.-cols6	{ max-width: percentage((6 / @grid-cols-total)); }
+		&.-cols7	{ max-width: percentage((7 / @grid-cols-total)); }
+		&.-cols8	{ max-width: percentage((8 / @grid-cols-total)); }
+		&.-cols9	{ max-width: percentage((9 / @grid-cols-total)); }
+		&.-cols10	{ max-width: percentage((10 / @grid-cols-total)); }
+		&.-cols11	{ max-width: percentage((11 / @grid-cols-total)); }
+		&.-cols12	{ max-width: percentage((12 / @grid-cols-total)); }
+		&.-cols13	{ max-width: percentage((13 / @grid-cols-total)); }
+		&.-cols14	{ max-width: percentage((14 / @grid-cols-total)); }
+		&.-cols15	{ max-width: percentage((15 / @grid-cols-total)); }
+		&.-cols16	{ max-width: percentage((16 / @grid-cols-total)); }
+		&.-cols17	{ max-width: percentage((17 / @grid-cols-total)); }
+		&.-cols18	{ max-width: percentage((18 / @grid-cols-total)); }
+		&.-cols19	{ max-width: percentage((19 / @grid-cols-total)); }
+		&.-cols20	{ max-width: percentage((20 / @grid-cols-total)); }
+		&.-cols21	{ max-width: percentage((21 / @grid-cols-total)); }
+		&.-cols22	{ max-width: percentage((22 / @grid-cols-total)); }
+		&.-cols23	{ max-width: percentage((23 / @grid-cols-total)); }
+		&.-cols24	{ max-width: percentage((24 / @grid-cols-total)); }
+	}
+}
