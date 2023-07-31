@@ -7,6 +7,7 @@
 
 // The number of columns you want in your grid
 @_grid-columns: 12;
+@_grid-columns-small: 4;
 // Max width of the main page container you wish to apply to grid to
 @_grid-content-maxwidth: @constraint-site;
 // Mediaquery breakpoint at which the small size kicks in
@@ -62,7 +63,11 @@
 		}
 	
 		@media @_grid-mediaquery-small {
-			&:nth-child(2n) {
+			// Set up variables so that the correct number of mobile columns are shown
+			@_nth-child-count-small: @_grid-columns-small + 1;
+			@_nth-child-count-rule-small: ~"1n + @{_nth-child-count-small}";
+
+			&:nth-child(@{_nth-child-count-rule-small})  {
 				display: none;
 			}
 		}
